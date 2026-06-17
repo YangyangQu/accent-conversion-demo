@@ -8,21 +8,20 @@
 
 <style>
 :root {
-  --bg: #f3f6fb;
+  --bg: #eef5fb;
   --card: #ffffff;
   --card-soft: #f8fbff;
-  --text: #1f2937;
-  --muted: #6b7280;
+  --text: #172033;
+  --muted: #64748b;
   --border: #dbe3ee;
   --blue: #4f86f7;
-  --cyan: #38bdf8;
   --teal: #2dd4bf;
   --green: #48bb78;
   --orange: #f59e0b;
   --pink: #ec4899;
   --purple: #8b5cf6;
   --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
-  --shadow-soft: 0 4px 14px rgba(15, 23, 42, 0.06);
+  --shadow-soft: 0 4px 14px rgba(15, 23, 42, 0.055);
 }
 
 * {
@@ -37,29 +36,30 @@ body {
   margin: 0;
   color: var(--text);
   background:
-    radial-gradient(circle at 8% 0%, rgba(79, 134, 247, 0.16) 0%, transparent 26%),
-    radial-gradient(circle at 92% 8%, rgba(45, 212, 191, 0.14) 0%, transparent 24%),
+    radial-gradient(circle at 8% 0%, rgba(79, 134, 247, 0.14) 0%, transparent 27%),
+    radial-gradient(circle at 92% 8%, rgba(45, 212, 191, 0.13) 0%, transparent 25%),
     linear-gradient(180deg, #f8fbff 0%, var(--bg) 100%);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  line-height: 1.55;
+  line-height: 1.5;
 }
 
 .page {
-  max-width: 1700px;
+  max-width: 1860px;
   margin: 0 auto;
-  padding: 36px 28px 70px 28px;
+  padding: 34px 24px 64px 24px;
 }
 
 /* ---------- Hero ---------- */
 
 .hero {
-  padding: 30px 34px;
+  padding: 28px 32px;
   border: 1px solid rgba(219, 227, 238, 0.95);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.84);
   box-shadow: var(--shadow);
   backdrop-filter: blur(12px);
-  margin-bottom: 28px;
+  margin-bottom: 26px;
+  overflow: hidden;
 }
 
 .hero-top {
@@ -81,7 +81,7 @@ h1 {
 
 .subtitle {
   margin: 0;
-  max-width: 850px;
+  max-width: 900px;
   font-size: 18px;
   color: var(--muted);
 }
@@ -101,6 +101,7 @@ h1 {
   background: #eef4ff;
   color: #315ba7;
   border: 1px solid #d8e6ff;
+  white-space: nowrap;
 }
 
 .badge.green {
@@ -118,8 +119,8 @@ h1 {
 /* ---------- Navigation ---------- */
 
 .nav-panel {
-  margin-top: 26px;
-  padding-top: 20px;
+  margin-top: 24px;
+  padding-top: 18px;
   border-top: 1px solid var(--border);
 }
 
@@ -133,14 +134,13 @@ h1 {
 .nav-links {
   display: flex;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 9px;
 }
 
 .nav-links a {
   display: inline-flex;
   align-items: center;
-  gap: 7px;
-  padding: 9px 15px;
+  padding: 8px 15px;
   border-radius: 999px;
   text-decoration: none;
   color: #1f2937;
@@ -161,7 +161,7 @@ h1 {
 /* ---------- Sections ---------- */
 
 .section {
-  margin-top: 42px;
+  margin-top: 38px;
   scroll-margin-top: 24px;
 }
 
@@ -170,7 +170,7 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .section-title {
@@ -190,18 +190,34 @@ h1 {
   color: var(--muted);
   font-size: 14px;
   font-weight: 650;
+  white-space: nowrap;
 }
 
 /* ---------- Pair Cards ---------- */
 
 .pair-card {
-  margin: 24px 0;
-  padding: 22px;
+  margin: 22px 0;
+  padding: 18px 20px 20px 20px;
   border-radius: 24px;
   border: 1px solid rgba(219, 227, 238, 0.95);
-  background: rgba(255, 255, 255, 0.88);
+  background: rgba(255, 255, 255, 0.9);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(10px);
+  overflow-x: auto;
+}
+
+.pair-card::-webkit-scrollbar {
+  height: 9px;
+}
+
+.pair-card::-webkit-scrollbar-track {
+  background: #edf2f7;
+  border-radius: 999px;
+}
+
+.pair-card::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
 }
 
 .pair-header {
@@ -209,18 +225,19 @@ h1 {
   align-items: center;
   justify-content: space-between;
   gap: 18px;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
 }
 
 .pair-title {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 11px;
   margin: 0;
   font-size: 25px;
   font-weight: 850;
   letter-spacing: -0.02em;
   color: #1f2937;
+  white-space: nowrap;
 }
 
 .arrow {
@@ -238,21 +255,23 @@ h1 {
   white-space: nowrap;
 }
 
-/* ---------- Audio Grid: 5 per row ---------- */
+/* ---------- Audio Grid: always one row ---------- */
 
 .audio-grid {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(6, minmax(175px, 1fr));
+  gap: 11px;
+  align-items: stretch;
+  min-width: 1080px;
 }
 
 .audio-box {
-  min-height: 124px;
-  padding: 13px 13px 12px 13px;
-  border-radius: 18px;
+  min-height: 98px;
+  padding: 10px 10px 10px 10px;
+  border-radius: 16px;
   border: 1px solid var(--border);
   background: linear-gradient(180deg, #ffffff 0%, var(--card-soft) 100%);
-  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.045);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
   transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
   overflow: hidden;
 }
@@ -260,7 +279,7 @@ h1 {
 .audio-box:hover {
   transform: translateY(-2px);
   border-color: #c6d7f2;
-  box-shadow: 0 12px 24px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 12px 22px rgba(15, 23, 42, 0.075);
 }
 
 .audio-box:nth-child(1) {
@@ -288,44 +307,39 @@ h1 {
 }
 
 .method-name {
-  font-size: 15px;
+  font-size: 13.5px;
   font-weight: 780;
   color: #243047;
-  margin-bottom: 3px;
-  line-height: 1.25;
-}
-
-.method-desc {
-  font-size: 12px;
-  color: #7b8794;
-  margin-bottom: 10px;
-  line-height: 1.25;
-  min-height: 16px;
+  margin-bottom: 8px;
+  line-height: 1.22;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 audio {
   display: block;
   width: 100%;
-  height: 38px;
+  height: 34px;
   border-radius: 12px;
 }
 
 .audio-error {
   display: none;
-  margin-top: 8px;
+  margin-top: 7px;
   color: #b91c1c;
   background: #fef2f2;
   border: 1px solid #fecaca;
   border-radius: 10px;
-  padding: 7px 9px;
-  font-size: 12px;
+  padding: 6px 8px;
+  font-size: 11.5px;
   font-weight: 600;
 }
 
 /* ---------- Footer ---------- */
 
 .footer {
-  margin-top: 50px;
+  margin-top: 46px;
   color: var(--muted);
   font-size: 14px;
   text-align: center;
@@ -333,52 +347,24 @@ audio {
 
 /* ---------- Responsive ---------- */
 
-@media (max-width: 1500px) {
+@media (max-width: 1280px) {
   .audio-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-@media (max-width: 1180px) {
-  .audio-grid {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
-
-  h1 {
-    font-size: 42px;
+    grid-template-columns: repeat(6, 180px);
+    min-width: 1135px;
   }
 }
 
 @media (max-width: 900px) {
   .page {
-    padding: 26px 18px 50px 18px;
+    padding: 24px 16px 48px 16px;
   }
 
   .hero {
-    padding: 24px 22px;
-  }
-
-  .audio-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .pair-header {
-    align-items: flex-start;
-    flex-direction: column;
-  }
-
-  .folder-name {
-    white-space: normal;
-  }
-}
-
-@media (max-width: 620px) {
-  .audio-grid {
-    grid-template-columns: 1fr;
+    padding: 22px 20px;
   }
 
   h1 {
-    font-size: 34px;
+    font-size: 38px;
   }
 
   .subtitle {
@@ -389,12 +375,29 @@ audio {
     font-size: 24px;
   }
 
+  .pair-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
   .pair-title {
-    font-size: 21px;
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 620px) {
+  h1 {
+    font-size: 32px;
   }
 
   .pair-card {
-    padding: 16px;
+    padding: 15px;
+  }
+
+  .audio-grid {
+    grid-template-columns: repeat(6, 172px);
+    min-width: 1070px;
   }
 }
 </style>
@@ -447,33 +450,27 @@ const accents = [
 const methods = [
   {
     file: "00_original.wav",
-    label: "Original",
-    desc: "Source speech"
+    display: "Source speech"
   },
   {
     file: "01_old_best_conversion.wav",
-    label: "Old best",
-    desc: "Previous best conversion"
+    display: "Previous best conversion"
   },
   {
     file: "02_classifier_attack.wav",
-    label: "Classifier attack",
-    desc: "Classifier-guided edit"
+    display: "Classifier-guided edit"
   },
   {
     file: "03_pronunciation_attack.wav",
-    label: "Pronunciation attack",
-    desc: "Pronunciation-oriented edit"
+    display: "Pronunciation-oriented edit"
   },
   {
     file: "04_strong_phone_replacement.wav",
-    label: "Strong phone replacement",
-    desc: "Stronger phone-level edit"
+    display: "Stronger phone-level edit"
   },
   {
     file: "05_vowel_replacement.wav",
-    label: "Vowel replacement",
-    desc: "Vowel-focused edit"
+    display: "Vowel-focused edit"
   }
 ];
 
@@ -495,8 +492,7 @@ function makeAudioBox(folder, method) {
 
   return `
     <div class="audio-box">
-      <div class="method-name">${escapeHtml(method.label)}</div>
-      <div class="method-desc">${escapeHtml(method.desc)}</div>
+      <div class="method-name">${escapeHtml(method.display)}</div>
       <audio controls preload="none">
         <source src="${escapeHtml(path)}" type="audio/wav">
         Your browser does not support the audio element.
