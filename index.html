@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Accent Conversion Demo</title>
+<style>
+:root {
+  --border: #ddd;
+  --bg: #fafafa;
+  --card: #ffffff;
+  --text: #222;
+  --muted: #666;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  max-width: 1200px;
+  margin: 36px auto;
+  padding: 0 20px;
+  color: var(--text);
+  line-height: 1.55;
+}
+h1 {
+  margin-bottom: 6px;
+}
+.subtitle {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+nav {
+  margin: 20px 0 32px 0;
+  padding: 14px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+nav a {
+  display: inline-block;
+  margin: 4px 8px 4px 0;
+  padding: 6px 10px;
+  text-decoration: none;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: #222;
+  background: white;
+}
+.section {
+  margin-top: 38px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 18px;
+  margin: 20px 0;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.04);
+}
+.pair-title {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.audio-box {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: var(--bg);
+}
+.audio-label {
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+audio {
+  width: 100%;
+}
+.missing {
+  color: #999;
+  font-style: italic;
+}
+@media (max-width: 800px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+<body>
+<h1>Accent Conversion Demo</h1>
+<p class="subtitle">Audio samples grouped by source accent and target accent.</p>
+<nav>
+<strong>Jump to source accent:</strong><br>
+<a href="#arabic">Arabic</a>
+<a href="#hindi">Hindi</a>
+<a href="#korean">Korean</a>
+<a href="#mandarin">Mandarin</a>
+<a href="#spanish">Spanish</a>
+<a href="#vietnamese">Vietnamese</a>
+</nav>
+<div class="section" id="arabic">
+<h2>Source accent: Arabic</h2>
+<div class="card">
+<div class="pair-title">Arabic → Hindi</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="arabic_to_hindi/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="arabic_to_hindi/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="arabic_to_hindi/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="arabic_to_hindi/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="arabic_to_hindi/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="arabic_to_hindi/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Arabic → Korean</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="arabic_to_korean/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="arabic_to_korean/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="arabic_to_korean/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="arabic_to_korean/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="arabic_to_korean/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="arabic_to_korean/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Arabic → Mandarin</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="arabic_to_mandarin/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="arabic_to_mandarin/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="arabic_to_mandarin/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="arabic_to_mandarin/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="arabic_to_mandarin/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="arabic_to_mandarin/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Arabic → Spanish</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="arabic_to_spanish/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="arabic_to_spanish/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="arabic_to_spanish/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="arabic_to_spanish/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="arabic_to_spanish/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="arabic_to_spanish/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Arabic → Vietnamese</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="arabic_to_vietnamese/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="arabic_to_vietnamese/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="arabic_to_vietnamese/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="arabic_to_vietnamese/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="arabic_to_vietnamese/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="arabic_to_vietnamese/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="hindi">
+<h2>Source accent: Hindi</h2>
+<div class="card">
+<div class="pair-title">Hindi → Arabic</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="hindi_to_arabic/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="hindi_to_arabic/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="hindi_to_arabic/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="hindi_to_arabic/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="hindi_to_arabic/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="hindi_to_arabic/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Hindi → Korean</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="hindi_to_korean/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="hindi_to_korean/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="hindi_to_korean/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="hindi_to_korean/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="hindi_to_korean/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="hindi_to_korean/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Hindi → Mandarin</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="hindi_to_mandarin/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="hindi_to_mandarin/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="hindi_to_mandarin/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="hindi_to_mandarin/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="hindi_to_mandarin/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="hindi_to_mandarin/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Hindi → Spanish</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="hindi_to_spanish/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="hindi_to_spanish/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="hindi_to_spanish/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="hindi_to_spanish/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="hindi_to_spanish/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="hindi_to_spanish/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Hindi → Vietnamese</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="hindi_to_vietnamese/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="hindi_to_vietnamese/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="hindi_to_vietnamese/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="hindi_to_vietnamese/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="hindi_to_vietnamese/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="hindi_to_vietnamese/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="korean">
+<h2>Source accent: Korean</h2>
+<div class="card">
+<div class="pair-title">Korean → Arabic</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="korean_to_arabic/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="korean_to_arabic/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="korean_to_arabic/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="korean_to_arabic/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="korean_to_arabic/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="korean_to_arabic/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Korean → Hindi</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="korean_to_hindi/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="korean_to_hindi/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="korean_to_hindi/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="korean_to_hindi/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="korean_to_hindi/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="korean_to_hindi/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Korean → Mandarin</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="korean_to_mandarin/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="korean_to_mandarin/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="korean_to_mandarin/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="korean_to_mandarin/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="korean_to_mandarin/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="korean_to_mandarin/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Korean → Spanish</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="korean_to_spanish/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="korean_to_spanish/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="korean_to_spanish/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="korean_to_spanish/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="korean_to_spanish/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="korean_to_spanish/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Korean → Vietnamese</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="korean_to_vietnamese/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="korean_to_vietnamese/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="korean_to_vietnamese/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="korean_to_vietnamese/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="korean_to_vietnamese/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="korean_to_vietnamese/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="mandarin">
+<h2>Source accent: Mandarin</h2>
+<div class="card">
+<div class="pair-title">Mandarin → Arabic</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="mandarin_to_arabic/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="mandarin_to_arabic/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="mandarin_to_arabic/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="mandarin_to_arabic/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="mandarin_to_arabic/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="mandarin_to_arabic/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Mandarin → Hindi</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="mandarin_to_hindi/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="mandarin_to_hindi/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="mandarin_to_hindi/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="mandarin_to_hindi/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="mandarin_to_hindi/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="mandarin_to_hindi/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Mandarin → Korean</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="mandarin_to_korean/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="mandarin_to_korean/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="mandarin_to_korean/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="mandarin_to_korean/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="mandarin_to_korean/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="mandarin_to_korean/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Mandarin → Spanish</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="mandarin_to_spanish/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="mandarin_to_spanish/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="mandarin_to_spanish/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="mandarin_to_spanish/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="mandarin_to_spanish/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="mandarin_to_spanish/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Mandarin → Vietnamese</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="mandarin_to_vietnamese/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="mandarin_to_vietnamese/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="mandarin_to_vietnamese/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="mandarin_to_vietnamese/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="mandarin_to_vietnamese/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="mandarin_to_vietnamese/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="spanish">
+<h2>Source accent: Spanish</h2>
+<div class="card">
+<div class="pair-title">Spanish → Arabic</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="spanish_to_arabic/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="spanish_to_arabic/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="spanish_to_arabic/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="spanish_to_arabic/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="spanish_to_arabic/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="spanish_to_arabic/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Spanish → Hindi</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="spanish_to_hindi/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="spanish_to_hindi/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="spanish_to_hindi/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="spanish_to_hindi/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="spanish_to_hindi/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="spanish_to_hindi/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Spanish → Korean</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="spanish_to_korean/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="spanish_to_korean/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="spanish_to_korean/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="spanish_to_korean/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="spanish_to_korean/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="spanish_to_korean/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Spanish → Mandarin</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="spanish_to_mandarin/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="spanish_to_mandarin/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="spanish_to_mandarin/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="spanish_to_mandarin/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="spanish_to_mandarin/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="spanish_to_mandarin/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Spanish → Vietnamese</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="spanish_to_vietnamese/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="spanish_to_vietnamese/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="spanish_to_vietnamese/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="spanish_to_vietnamese/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="spanish_to_vietnamese/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="spanish_to_vietnamese/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="vietnamese">
+<h2>Source accent: Vietnamese</h2>
+<div class="card">
+<div class="pair-title">Vietnamese → Arabic</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="vietnamese_to_arabic/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="vietnamese_to_arabic/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="vietnamese_to_arabic/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="vietnamese_to_arabic/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_arabic/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_arabic/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Vietnamese → Hindi</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="vietnamese_to_hindi/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="vietnamese_to_hindi/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="vietnamese_to_hindi/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="vietnamese_to_hindi/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_hindi/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_hindi/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Vietnamese → Korean</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="vietnamese_to_korean/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="vietnamese_to_korean/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="vietnamese_to_korean/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="vietnamese_to_korean/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_korean/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_korean/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Vietnamese → Mandarin</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="vietnamese_to_mandarin/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="vietnamese_to_mandarin/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="vietnamese_to_mandarin/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="vietnamese_to_mandarin/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_mandarin/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_mandarin/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+<div class="card">
+<div class="pair-title">Vietnamese → Spanish</div>
+<div class="grid">
+<div class="audio-box">
+<div class="audio-label">Original</div>
+<audio controls preload="none"><source src="vietnamese_to_spanish/00_original.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Old best conversion</div>
+<audio controls preload="none"><source src="vietnamese_to_spanish/01_old_best_conversion.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Classifier attack</div>
+<audio controls preload="none"><source src="vietnamese_to_spanish/02_classifier_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Pronunciation attack</div>
+<audio controls preload="none"><source src="vietnamese_to_spanish/03_pronunciation_attack.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Strong phone replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_spanish/04_strong_phone_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+<div class="audio-box">
+<div class="audio-label">Vowel replacement</div>
+<audio controls preload="none"><source src="vietnamese_to_spanish/05_vowel_replacement.wav" type="audio/wav">Your browser does not support the audio element.</audio>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
